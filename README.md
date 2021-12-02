@@ -19,7 +19,7 @@ Tabela 2: Stopnja brezposelnosti po statističnih regijah
 * leto (število)
 * statistična regija (niz)
 * stopnja brezposelnosti (število)
-* vir: https://pxweb.stat.si/SiStatData/pxweb/sl/Data/-/0762111S.px
+* vir: https://www.ess.gov.si/trg_dela/trg_dela_v_stevilkah/stopnja_registrirane_brezposelnosti
 
 Tabela 3: Stopnja brezposelnosti v evropskih državah
 * leto (število)
