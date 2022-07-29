@@ -36,7 +36,9 @@ slovar <- c("Belgium" = "Belgija",
             "Norway" = "Norveška",
             "North Macedonia" = "Severna Makedonija",
             "Serbia" = "Srbija",
-            "Turkey" = "Turčija")
+            "Turkey" = "Turčija",
+            "France (metropolitan)" = "Metropolitanska Francija",
+            "Montenegro" = "Črna gora")
 
 
 #tabela1 - brezposelni po stopnjah izobrazbe, spolu in kohezijskih regijah (v 1000 in v %)
@@ -52,6 +54,7 @@ tabela1 <- tabela1 %>% pivot_wider(names_from = meritev, values_from = podatek)%
   mutate(stevilo = Stevilo*1000)
 
 tabela1 <- subset(tabela1, select = c("leto", "kohezijska_regija", "spol", "izobrazba" ,"stevilo", "delez")) 
+
 #tabela2 - mere aktivnosti po statisticnih regijah (v %)
 
 stolpci2 <- c("leto", "statisticna_regija", "meritev", "delez")
@@ -69,8 +72,11 @@ tabela3$delez <- gsub("\"", "",tabela3$delez)
 tabela3$spol <- sub("Males", "moški", tabela3$spol)
 tabela3$spol <- sub("Females", "ženske", tabela3$spol)
 
-tabela3$izobrazba[tabela3$izobrazba == "Less than primary, primary and lower secondary education (levels 0-2)"] <- "Neki gdgwgsf, gdagdw"
+tabela3$izobrazba[tabela3$izobrazba == "Less than primary, primary and lower secondary education (levels 0-2)"] <- "Brez izobrazbe, nepopolna osnovnošolska ali osnovnošolska"
+tabela3$izobrazba[tabela3$izobrazba == "Upper secondary and post-secondary non-tertiary education (levels 3 and 4)"] <- "Nižja ali srednja poklicna"
+tabela3$izobrazba[tabela3$izobrazba == "Tertiary education (levels 5-8)"] <- "Srednja strokovna, višješolska, visokošolska ali univerzitetna"
 
 tabela3 <- subset(tabela3, select = c("leto", "drzava", "spol", "izobrazba", "delez")) 
 
 tabela3 <- tabela3 %>% mutate(drzava=slovar[drzava])
+
