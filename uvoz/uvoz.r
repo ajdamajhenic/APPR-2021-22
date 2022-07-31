@@ -78,5 +78,9 @@ tabela3$izobrazba[tabela3$izobrazba == "Tertiary education (levels 5-8)"] <- "Sr
 
 tabela3 <- subset(tabela3, select = c("leto", "drzava", "spol", "izobrazba", "delez")) 
 
-tabela3 <- tabela3 %>% mutate(drzava=slovar[drzava])
 
+tabela3$delez <- gsub(",", ".",tabela3$delez)
+tabela3$delez <- as.numeric(as.character(tabela3$delez))
+
+tabela3_imena <- tabela3 %>% mutate(drzava=slovar[drzava])
+tabela3_imena$delez <- as.numeric(as.character(tabela3_imena$delez))
