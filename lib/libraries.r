@@ -8,7 +8,9 @@ library(readr)
 library(dplyr)
 library(tibble)
 library(ggplot2)
-
+library(cluster)
+library(ggalt)
+library(tidyverse)
 
 options(gsubfn.engine="R")
 
