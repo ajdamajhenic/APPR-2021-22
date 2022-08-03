@@ -34,6 +34,6 @@ shinyUI(fluidPage(
            sidebarPanel(
              selectInput("izobrazba", label = "Izberite izobrazbo:",
                          choices=(sort(unique(s2_shiny$izobrazba))))),
-           mainPanel(plotOutput("drzava"))),
+           mainPanel(plotOutput("drzavaz"))),
   uiOutput("izborTabPanel"))
 ))

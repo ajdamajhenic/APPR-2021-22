@@ -26,7 +26,7 @@ shinyServer(function(input, output) {
             ylab("Povprečna stopnja brezposelnosti") + xlab("Leto")) + theme_minimal() +
       theme(axis.title = element_text(size=13,face="bold"), axis.text = element_text(size=10), axis.text.x=element_text(angle=45, vjust=0.5, hjust=0.5))
   })
-  output$drzava<- renderPlot({
+  output$drzavaz<- renderPlot({
     
     tabela__3 <- s2_shiny %>% filter(drzava == input$drzava & izobrazba==input$izobrazba) 
     
