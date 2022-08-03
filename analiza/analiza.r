@@ -451,3 +451,63 @@ pp.ucni = pp.razbitje(nrow(ucni))
 
 precno.preverjanje(ucni, pp.ucni, real ~ ., "lin.reg", FALSE )
 
+#_----------------------------------------
+naredi.df.3 <- function(x){
+  data.frame(real  = x,
+             "T-1"  = zamakni(x, 1),
+             "T-2" = zamakni(x, 2),
+             "T-3" = zamakni(x, 3))
+}
+
+razsirjeni_1 <- naredi.df.3(podatki1$brezposelnost)
+
+ucni_1 <- razsirjeni_1[4:nrow(razsirjeni_1),]
+
+pp.ucni_1 = pp.razbitje(nrow(ucni_1))
+
+#linearna regresija na razlicnih stolpcih/ kombinacijah stolpcev
+
+precno_lin_T1 <- precno.preverjanje(ucni_1, pp.ucni_1, real ~ T.1, "lin.reg", FALSE )
+#24.50164
+precno_lin_T2 <- precno.preverjanje(ucni_1, pp.ucni_1, real ~ T.2, "lin.reg", FALSE )
+#49.32004
+precno_lin_T3 <- precno.preverjanje(ucni_1, pp.ucni_1, real ~ T.3, "lin.reg", FALSE )
+#48.14944
+precno_lin_T1inT3 <- precno.preverjanje(ucni_1, pp.ucni_1, real ~ T.1+T.3, "lin.reg", FALSE )
+#23.77041
+precno_lin_T1na2inT3 <- precno.preverjanje(ucni_1, pp.ucni_1, real ~ I(T.1^2)+T.3, "lin.reg", FALSE )
+#26.36495
+precno_lin_T3na2inT1 <- precno.preverjanje(ucni_1, pp.ucni_1, real ~ I(T.3^2)+T.1, "lin.reg", FALSE )
+#21.12874
+precno_lin_T3na2inT1na2 <- precno.preverjanje(ucni_1, pp.ucni_1, real ~ I(T.3^2)+I(T.1^2), "lin.reg", FALSE )
+#23.99386
+
+#naključni gozdovi
+precno_ng_T1 <- precno.preverjanje(ucni_1, pp.ucni_1, real ~ T.1, "ng", FALSE )
+#26.00237
+precno_ng_T2 <- precno.preverjanje(ucni_1, pp.ucni_1, real ~ T.2, "ng", FALSE )
+#49.84263
+precno_ng_T3 <- precno.preverjanje(ucni_1, pp.ucni_1, real ~ T.3, "ng", FALSE )
+#65.99273
+precno_ng_T1inT3 <- precno.preverjanje(ucni_1, pp.ucni_1, real ~ T.1+T.3, "ng", FALSE )
+#36.79079
+
+#izberemo model z najmanjšo napako in to je precno_lin_T3na2inT1
+finalni_model <- ucenje(ucni_1, real ~ I(T.3^2)+T.1, "lin.reg")
+
+original <- ucni_1
+original[nrow(original)+3,] <- NA
+
+#napoved
+pr <- predict(finalni_model, original)
+napoved_brezposelnosti <- data.frame(leto = c(2022, 2023, 2024, 2025), brezposelnost = c(pr[1], pr[2], pr[3], pr[4]))
+napoved_brezposelnosti$Vrsta <- "Napoved"
+podatki1$Vrsta <- "Podatek"
+skupna_tabela <- rbind(podatki1, napoved_brezposelnosti)
+
+graf_napoved <- ggplot(skupna_tabela, aes(x=leto, y=brezposelnost, shape=Vrsta)) +
+  geom_point(data=skupna_tabela, aes(x=leto, y=brezposelnost), color="red", size=3) +
+  labs(title="Napoved brezposelnosti", y="Stopnja brezposelnosti", x="Leto") + 
+  geom_point(color="red") +
+  geom_line()
+graf_napoved

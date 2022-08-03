@@ -11,6 +11,7 @@ library(ggplot2)
 library(cluster)
 library(ggalt)
 library(tidyverse)
+library(ranger)
 
 options(gsubfn.engine="R")
 
