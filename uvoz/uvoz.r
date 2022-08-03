@@ -59,7 +59,8 @@ tabela1 <- subset(tabela1, select = c("leto", "kohezijska_regija", "spol", "izob
 
 stolpci2 <- c("leto", "statisticna_regija", "meritev", "delez")
 tabela2 <- read_csv("podatki/tabela2.csv",col_names = stolpci2, skip=3, locale=locale(encoding = "Windows-1250"))
-
+tabela11 <- tabela2 %>% filter(meritev=="Stopnja brezposelnosti") %>%
+select(c(-meritev))
 #tabela3 - stopnja brezposelnosti v evropskih drzavah
 
 tabela3 <- read_csv("podatki/tabela3.csv", locale = locale(encoding = "Windows-1250"), skip = 1,
@@ -84,3 +85,6 @@ tabela3$delez <- as.numeric(as.character(tabela3$delez))
 
 tabela3_imena <- tabela3 %>% mutate(drzava=slovar[drzava])
 tabela3_imena$delez <- as.numeric(as.character(tabela3_imena$delez))
+#tabele za Shiny
+s1_shiny <- tabela3_imena %>% filter(spol== "moški") %>% select(-c(spol))
+s2_shiny <- tabela3_imena %>% filter(spol== "ženske") %>% select(-c(spol))

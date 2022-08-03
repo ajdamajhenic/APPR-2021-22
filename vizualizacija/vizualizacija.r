@@ -169,3 +169,4 @@ zemljevid3 <- tm_shape(merge(zemljevid,
   tm_layout(main.title = "Delež brezposelnih med ljudmi s \n srednjo strokovno, višješolsko, visokošolsko \n ali univerzitetno izobrazbo", main.title.size = 0.5, legend.title.size = 2)
 
 zemljevid3
+
