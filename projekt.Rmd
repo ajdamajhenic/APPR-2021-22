@@ -1,6 +1,6 @@
 ---
 title: "Stopnja brezposelnosti v Sloveniji in drugih evropskih državah"
-author: "Ajda Majhenienič"
+author: "Ajda Majhenič"
 output:
   html_document: default
   pdf_document:
@@ -20,6 +20,7 @@ source("lib/libraries.r", encoding="UTF-8")
 
 ## Izbira teme
 
+Pri projektni nalogi sem primerjala stopnjo brezposelnosti od leta 2008 do leta 2021 v Sloveniji in ostalih evropskih državah glede na spol in stopnjo izobrazbe, za ljudi med 20. in 64. letom starosti. Analizirala sem, kako je v Sloveniji na stopnjo brezposelnosti vplivala stopnja izobrazbe ter kolikšna je brezposelnost glede na statistično regijo.
 
 ***
 
@@ -27,7 +28,7 @@ source("lib/libraries.r", encoding="UTF-8")
 
 Podakte sem uvozila iz Statističnega urada Republike Slovenije in iz Eurostata.
 
-Imam 3 tabele v obliki CSV in eno v obliki html.
+Imam 3 tabele v obliki CSV.
 
 1. tabela1 - Brezposelni po stopnjah izobrazbe, spolu in kohezijski regiji (v 1000 in v %) - Slovenija
     - leto - spremenljivka: leto meritve (2008-2021)
@@ -36,6 +37,19 @@ Imam 3 tabele v obliki CSV in eno v obliki html.
     - izobrazba - spremenljivka: stopnja izobrazbe
     - meritev - spremenljivka: delež ali število v tisočih
     - podatek - meritev: število ali delež brezposelnih
+    
+2. tabela2 - Delež stopnje brezposelnosti in stopnje delovne aktivnosti po statističnih regijah - Slovenija
+    - leto - spremenljivka: leto meritve (2008-2021)
+    - statisticna_regija - spremenljivka: statisticna regija, v kateri gledamo meritev
+    - meritev - spremenljivka: stopnja aktivnosti, stopnja delovne aktivnosti, stopnja brezposelnosti oziroma stopnja delovne aktivnosti v starostni skupini 20-64 let
+    - delez - meritev: delež meritve
+    
+3. tabela3 - Brezposelni po stopnjah izobrazbe, spolu in državi - EU
+    - leto - spremenljivka: leto meritve (2008-2019)
+    - drzava - spremenljivka: evropska drzava, v kateri gledamo meritev
+    - spol - spremenljivka: ženske ali moški
+    - izobrazba - spremenljivka: stopnja izobrazbe
+    - delez - meritev: delež brezposelnosti v določeni izobrazbeni skupini
 
 ```{r uvoz}
 source("uvoz/uvoz.r", encoding="UTF-8")
@@ -45,23 +59,25 @@ source("uvoz/uvoz.r", encoding="UTF-8")
 
 ## Analiza in vizualizacija podatkov
 
-### podnaslov
-blabla
-
 ```{r vizualizacija, results='hide'}
 source("vizualizacija/vizualizacija.r", encoding="UTF-8")
 ```
 
-vstavimo graf:
+### Spreminjanje deleža brezposelnih glede na stopnjo izobrazbe skozi leta
 
 ```{r graf1, echo=FALSE, message=FALSE, fig.align='center'}
 print(graf1)
 ```
 
+### Primerjava deleža brezposelnosti glede na spol in stopnjo izobrazbe med državami
+
 ```{r graf2, echo=FALSE, message=FALSE, fig.align='center'}
 print(graf2)
 ```
 
+```{r graf3, echo=FALSE, message=FALSE, fig.align='center'}
+print(graf3)
+```
 
 
 ***
