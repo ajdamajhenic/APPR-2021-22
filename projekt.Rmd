@@ -63,13 +63,18 @@ source("uvoz/uvoz.r", encoding="UTF-8")
 source("vizualizacija/vizualizacija.r", encoding="UTF-8")
 ```
 
-### Spreminjanje deleža brezposelnih glede na stopnjo izobrazbe skozi leta
+### Spreminjanje deleža brezposelnih glede na spol in stopnjo izobrazbe skozi leta
+
+Iz grafov je razvidno, da je pri ženskah brezposelnost vsa leta nekoliko višja kot pri moških. Opazimo tudi, da se brezposelnost zmanjšuje z zviševanjem stopnje izobrazbe. Brezposelnost skozi leta narašča, največjo stopnjo brezposelnosti pa je moč opaziti v obdobju okrog leta 2012, ko so se kazale posledice gospodarske krize leta 2008. Nato brezposelnost nekoliko upada, ko si je gospodarstvo nekoliko opomoglo. Nato pa se po letu 2019 brezposelnost znova začne zviševati zaradi odpuščanj, ki so bila posledica "korona-krize".
+
 
 ```{r graf1, echo=FALSE, message=FALSE, fig.align='center'}
 print(graf1)
 ```
 
 ### Primerjava deleža brezposelnosti glede na spol in stopnjo izobrazbe med državami
+
+Iz spodnjih grafov je razvidno, da je v splošnem brezposelnost pri ženskah nekoliko višja kot pri moških. Najnižja je brezposelnost za najvišjo izobrazbo, najvišja pa za srednjo stonjo izobrazbe.
 
 ```{r graf2, echo=FALSE, message=FALSE, fig.align='center'}
 print(graf2)
@@ -79,14 +84,29 @@ print(graf2)
 print(graf3)
 ```
 
+Delež brezposelnih sem obravnavala tudi po posameznih statističnih regijah. Na spodnjem zemljevidu je predstavljena povprečna stopnja brezposelnosti v določeni regiji od leta 2008 do leta 2021.
+
+!! zemljevid_slo !!
+
+Na zemljevidu lahko opazimo, da je delež brezposelnosti najnižji v Osrednjeslovenski regiji, razlog za to je verjetno ta, da je ta regija od vseh najgosteje poseljena z aktivnim prebivalstvom. Sledijo ji Gorenjska, Koroška, Goriška in Jugovzhodna Slovenija, največji delež brezposelnosti pa se kaže v Pomurski regiji.
+
 
 ***
 
 ## Napredna analiza podatkov
 
+!! se ne zažene !!
+
+Pri napredni analizi podatkov sem se osredotočila na napoved deleža brezposelnih v Sloveniji za naslednja 4 leta.
+
+!! graf_napoved !!
 
 ***
 
 ```{r shiny}
 shinyAppDir("shiny", options=list(width="100%", height=600))
 ```
+
+***
+
+## Zaključek
