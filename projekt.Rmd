@@ -101,6 +101,8 @@ Pri napredni analizi podatkov sem se osredotočila na napoved deleža brezposeln
 
 !! graf_napoved !!
 
+Kot vidimo na grafu, je napoved za brezposelnost slaba, to pa lahko pripišemo slabim gospodarskim razmeram, ki so posledica Covida-19.
+
 ***
 
 ```{r shiny}
@@ -110,3 +112,4 @@ shinyAppDir("shiny", options=list(width="100%", height=600))
 ***
 
 ## Zaključek
+Kljub napovedani večji stopnji brezposelnosti upam, da se bodo razmere, nastale zaradi Covida-19, kmalu umirile in pripomogle k temu, da se brezposelnost znova zniža.
