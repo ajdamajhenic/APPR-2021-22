@@ -86,7 +86,9 @@ print(graf3)
 
 Delež brezposelnih sem obravnavala tudi po posameznih statističnih regijah. Na spodnjem zemljevidu je predstavljena povprečna stopnja brezposelnosti v določeni regiji od leta 2008 do leta 2021.
 
-!! zemljevid_slo !!
+<!--```{r zemljevid_slo, echo=FALSE, fig.align='center'}
+print(zemljevid_slo)
+```-->
 
 Na zemljevidu lahko opazimo, da je delež brezposelnosti najnižji v Osrednjeslovenski regiji, razlog za to je verjetno ta, da je ta regija od vseh najgosteje poseljena z aktivnim prebivalstvom. Sledijo ji Gorenjska, Koroška, Goriška in Jugovzhodna Slovenija, največji delež brezposelnosti pa se kaže v Pomurski regiji.
 
@@ -95,11 +97,15 @@ Na zemljevidu lahko opazimo, da je delež brezposelnosti najnižji v Osrednjeslo
 
 ## Napredna analiza podatkov
 
-!! se ne zažene !!
+<!--```{r analiza}
+source("analiza/analiza.r", encoding="UTF-8")
+```--> 
 
 Pri napredni analizi podatkov sem se osredotočila na napoved deleža brezposelnih v Sloveniji za naslednja 4 leta.
 
-!! graf_napoved !!
+<!--```{r graf_napoved, echo=FALSE, message=FALSE, fig.align='center'}
+print(graf_napoved)
+```-->
 
 Kot vidimo na grafu, je napoved za brezposelnost slaba, to pa lahko pripišemo slabim gospodarskim razmeram, ki so posledica Covida-19.
 
