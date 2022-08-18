@@ -122,7 +122,7 @@ Spodaj lahko vidimo, da so države, glede na stopnjo brezposelnosti med ljudmi b
 print(grafBrez)
 ```
 
-Iz naslednjega grafaa pa lahko razberemo, da so države, glede na stopnjo brezposelnosti med ljudmi z nižjo ali srednjo poklicno izobrazbo, razdeljene v pet skupin.
+Iz naslednjega grafa pa lahko razberemo, da so države, glede na stopnjo brezposelnosti med ljudmi z nižjo ali srednjo poklicno izobrazbo, razdeljene v pet skupin.
 
 ```{r grafNizja, echo=FALSE, message=FALSE, fig.align='center'}
 print(grafNizja)
