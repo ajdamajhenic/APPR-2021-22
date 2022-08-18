@@ -217,7 +217,8 @@ skupine <- brez.clust %>%
   hclust(method = "ward.D") %>%
   cutree(k = k) %>%
   as.ordered()
-#diagram.skupine(drzave.x.y, drzave.x.y$drzava, skupine, k)
+diagram.skupine(drzave.x.y, drzave.x.y$drzava, skupine, k) -> grafBrez
+#grafBrez
 
 #------------------------------
 
@@ -261,7 +262,8 @@ skupine <- nizja.clust %>%
   hclust(method = "ward.D") %>%
   cutree(k = k) %>%
   as.ordered()
-#diagram.skupine(drzave.x.y, drzave.x.y$drzava, skupine, k)
+diagram.skupine(drzave.x.y, drzave.x.y$drzava, skupine, k) -> grafNizja
+#grafNizja
 
 #------------------------------
 
@@ -305,7 +307,8 @@ skupine <- visja.clust %>%
   hclust(method = "ward.D") %>%
   cutree(k = k) %>%
   as.ordered()
-#diagram.skupine(drzave.x.y, drzave.x.y$drzava, skupine, k)
+diagram.skupine(drzave.x.y, drzave.x.y$drzava, skupine, k) -> grafVisja
+#grafVisja
 
 #-----------------------------------------
 

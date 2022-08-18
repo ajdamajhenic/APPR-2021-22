@@ -116,7 +116,27 @@ print(zemljevid3)
 source("analiza/analiza.r", encoding="UTF-8")
 ```
 
-Pri napredni analizi podatkov sem se osredotočila na napoved deleža brezposelnih v Sloveniji za naslednja 4 leta.
+Spodaj lahko vidimo, da so države, glede na stopnjo brezposelnosti med ljudmi brez izobrazbe, z nepopolno osnovnošolsko ali osnovnošolsko izobrazbo, razdeljene v štiri skupine.
+
+```{r grafBrez, echo=FALSE, message=FALSE, fig.align='center'}
+print(grafBrez)
+```
+
+Iz naslednjega grafaa pa lahko razberemo, da so države, glede na stopnjo brezposelnosti med ljudmi z nižjo ali srednjo poklicno izobrazbo, razdeljene v pet skupin.
+
+```{r grafNizja, echo=FALSE, message=FALSE, fig.align='center'}
+print(grafNizja)
+```
+
+Če si pogledamo še kako so države razdeljene v skupine pri srednji strokovni, višješolski, visokošolski ali univerzitetni izobrazbi, dobimo tri skupine:
+
+```{r grafVisja, echo=FALSE, message=FALSE, fig.align='center'}
+print(grafVisja)
+```
+
+Število skupin sem izbrala na podlagi izračuna in izrisa kolena, diagrama obrisov in dendrograma.
+
+Nato sem se osredotočila na napoved deleža brezposelnih v Sloveniji za naslednja 4 leta.
 
 ```{r graf_napoved, echo=FALSE, message=FALSE, fig.align='center'}
 print(graf_napoved)
