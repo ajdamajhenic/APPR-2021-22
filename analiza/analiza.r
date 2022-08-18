@@ -184,7 +184,7 @@ brez.clust <- skupno_po_drzavah %>% filter(izobrazba == "Brez izobrazbe, nepopol
 r.hc = brez.clust %>% obrisi(hc = TRUE, od=2, do=10)
 
 r.hc.plt <- diagram.obrisi(r.hc)
-r.hc.plt
+#r.hc.plt
 
 #------- DENDROGRAM -----
 
@@ -192,16 +192,16 @@ X <- brez.clust[,-2]
 drzave <- brez.clust[, 1] %>% unlist()
 razdalje <- brez.clust[, -1] %>% dist()
 dendrogram  <- dist(X) %>% hclust(method = "ward.D")
-plot(dendrogram,
-     labels = brez.clust$drzava,
-     ylab = "višina",
-     main = NULL)
+# plot(dendrogram,
+#      labels = brez.clust$drzava,
+#      ylab = "višina",
+#      main = NULL)
 
 #oba predlagata razporeditev v 4 skupine
 
 #--- IZRAČUN IN IZRIS KOLENA ----
 r = hc.kolena(dendrogram)
-diagram.kolena(r)
+#diagram.kolena(r)
 
 
 drzave.x.y <-
@@ -217,7 +217,7 @@ skupine <- brez.clust %>%
   hclust(method = "ward.D") %>%
   cutree(k = k) %>%
   as.ordered()
-diagram.skupine(drzave.x.y, drzave.x.y$drzava, skupine, k)
+#diagram.skupine(drzave.x.y, drzave.x.y$drzava, skupine, k)
 
 #------------------------------
 
@@ -228,7 +228,7 @@ nizja.clust <- skupno_po_drzavah %>% filter(izobrazba == "Nižja ali srednja pok
 r.hc = nizja.clust %>% obrisi(hc = TRUE, od=2, do=10)
 
 r.hc.plt <- diagram.obrisi(r.hc)
-r.hc.plt
+#r.hc.plt
 
 #------- DENDROGRAM -----
 
@@ -236,16 +236,16 @@ X <- nizja.clust[,-2]
 drzave <- nizja.clust[, 1] %>% unlist()
 razdalje <- nizja.clust[, -1] %>% dist()
 dendrogram  <- dist(X) %>% hclust(method = "ward.D")
-plot(dendrogram,
-     labels = nizja.clust$drzava,
-     ylab = "višina",
-     main = NULL)
+# plot(dendrogram,
+#       labels = nizja.clust$drzava,
+#       ylab = "višina",
+#       main = NULL)
 
 #oba predlagata razporeditev v 5 skupin
 
 #--- IZRAČUN IN IZRIS KOLENA ----
 r = hc.kolena(dendrogram)
-diagram.kolena(r)
+#diagram.kolena(r)
 
 
 drzave.x.y <-
@@ -261,7 +261,7 @@ skupine <- nizja.clust %>%
   hclust(method = "ward.D") %>%
   cutree(k = k) %>%
   as.ordered()
-diagram.skupine(drzave.x.y, drzave.x.y$drzava, skupine, k)
+#diagram.skupine(drzave.x.y, drzave.x.y$drzava, skupine, k)
 
 #------------------------------
 
@@ -272,7 +272,7 @@ visja.clust <- skupno_po_drzavah %>% filter(izobrazba == "Srednja strokovna, vi�
 r.hc = visja.clust %>% obrisi(hc = TRUE, od=2, do=10)
 
 r.hc.plt <- diagram.obrisi(r.hc)
-r.hc.plt
+#r.hc.plt
 
 #------- DENDROGRAM -----
 
@@ -280,16 +280,16 @@ X <- visja.clust[,-2]
 drzave <- visja.clust[, 1] %>% unlist()
 razdalje <- visja.clust[, -1] %>% dist()
 dendrogram  <- dist(X) %>% hclust(method = "ward.D")
-plot(dendrogram,
-     labels = visja.clust$drzava,
-     ylab = "višina",
-     main = NULL)
+# plot(dendrogram,
+#       labels = visja.clust$drzava,
+#       ylab = "višina",
+#       main = NULL)
 
 #eden predlaga razporeditev v 9 skupin, drugi pa v 3 ali 5 skupin
 
 #--- IZRAČUN IN IZRIS KOLENA ----
 r = hc.kolena(dendrogram)
-diagram.kolena(r)
+#diagram.kolena(r)
 
 
 drzave.x.y <-
@@ -305,7 +305,7 @@ skupine <- visja.clust %>%
   hclust(method = "ward.D") %>%
   cutree(k = k) %>%
   as.ordered()
-diagram.skupine(drzave.x.y, drzave.x.y$drzava, skupine, k)
+#diagram.skupine(drzave.x.y, drzave.x.y$drzava, skupine, k)
 
 #-----------------------------------------
 
@@ -511,3 +511,4 @@ graf_napoved <- ggplot(skupna_tabela, aes(x=leto, y=brezposelnost, shape=Vrsta))
   geom_point(color="red") +
   geom_line()
 graf_napoved
+
